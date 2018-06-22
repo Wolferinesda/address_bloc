@@ -46,7 +46,6 @@ class MenuController
         puts "Good-bye!"
         exit(0)
       when 777
-        system "clear"
         print "Are you sure? (yes/no) "
         answer = gets.chomp
         if answer == "yes"
@@ -217,9 +216,7 @@ class MenuController
   end
 
   def detonate_entries
-    address_book.entries.each do |entry|
-      address_book.entries.delete(entry)
-    end
+    @address_book = []
     system "clear"
     puts "All entries removed"
   end
