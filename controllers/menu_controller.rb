@@ -15,6 +15,7 @@ class MenuController
     puts "4 - Import entries from a CSV"
     puts "5 - View entry number n"
     puts "6 - Exit"
+    puts "777 - To demolish all existing entries"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -44,6 +45,19 @@ class MenuController
       when 6
         puts "Good-bye!"
         exit(0)
+      when 777
+        system "clear"
+        print "Are you sure? (yes/no) "
+        answer = gets.chomp
+        if answer == "yes"
+          detonate_entries
+          main_menu
+        elsif answer == "no"
+          main_menu
+        else
+          print "Invalid reponse. Returning to main menu."
+          main_menu
+        end
       else
         system "clear"
         puts "Sorry, that is not a valid input"
@@ -201,4 +215,13 @@ class MenuController
     puts "Updated entry: "
     puts entry
   end
+
+  def detonate_entries
+    address_book.entries.each do |entry|
+      address_book.entries.delete(entry)
+    end
+    system "clear"
+    puts "All entries removed"
+  end
+
 end
