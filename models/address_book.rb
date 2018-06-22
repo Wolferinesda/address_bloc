@@ -53,15 +53,17 @@ class AddressBook
   end
 
   def iterative_search(name)
-    i = 0
-
-    while i <= (entries.length - 1)
-      if entries[i] == name
-        return entries[i]
-      elsif entries[i] > name
-        i += 1
+    @entries.each do |entry|
+      if entry.name == name
+        return entry
       end
     end
     return nil
+  end
+
+  def detonate_entries
+    @entries = []
+    system "clear"
+    puts "All entries removed"
   end
 end

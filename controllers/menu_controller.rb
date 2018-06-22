@@ -214,11 +214,4 @@ class MenuController
     puts "Updated entry: "
     puts entry
   end
-
-  def detonate_entries
-    @address_book = []
-    system "clear"
-    puts "All entries removed"
-  end
-
 end
