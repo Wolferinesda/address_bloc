@@ -49,7 +49,8 @@ class MenuController
         print "Are you sure? (yes/no) "
         answer = gets.chomp
         if answer == "yes"
-          detonate_entries
+          system "clear"
+          address_book.detonate_entries
           main_menu
         elsif answer == "no"
           main_menu
